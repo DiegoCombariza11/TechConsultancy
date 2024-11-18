@@ -7,7 +7,7 @@ import { Select } from "@/components/ui/select"
 import { Slider } from "@/components/ui/slider"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Recycle, ShoppingBag, MessageCircle, Search, ChevronDown } from 'lucide-react'
+import { Recycle, ShoppingBag, MessageCircle, Search } from 'lucide-react'
 
 // Dummy data for demonstration
 const products = [

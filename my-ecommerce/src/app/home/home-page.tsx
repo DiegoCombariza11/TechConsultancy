@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Recycle, ShoppingBag, BookOpen, MessageCircle, ChevronRight } from 'lucide-react'
+import { Recycle, ShoppingBag, BookOpen, MessageCircle} from 'lucide-react'
 
 export default function Component() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link className="flex items-center justify-center" href="#">
+        <Link className="flex items-center justify-center" href="/">
           <Recycle className="h-6 w-6 text-green-600" />
           <span className="ml-2 text-2xl font-bold text-gray-700">TechRecycle</span>
         </Link>
