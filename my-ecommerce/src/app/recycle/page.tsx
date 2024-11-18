@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Recycle, ShoppingBag, MessageCircle, CheckCircle2, ChevronDown, Menu } from 'lucide-react'
+import { Recycle, ShoppingBag, MessageCircle, CheckCircle2, Menu } from 'lucide-react'
 
 export default function RecycleProgramPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
