@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/Input"
+import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Recycle, ShoppingBag, MessageCircle, Calendar, Clock, ChevronRight } from 'lucide-react'
