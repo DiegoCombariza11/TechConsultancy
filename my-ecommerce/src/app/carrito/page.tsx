@@ -57,9 +57,11 @@ export default function CartPage() {
           </Link>
         </nav>
         <div className="flex items-center gap-4 ml-4">
-          <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon">
+            <Link href="/#">
             <ShoppingBag className="h-5 w-5" />
             <span className="sr-only">Carrito de compras</span>
+            </Link>
           </Button>
           <Button variant="ghost" size="sm">Iniciar sesión</Button>
         </div>
@@ -144,7 +146,9 @@ export default function CartPage() {
                       </div>
                     </div>
                     <Button className="w-full mt-6" disabled={cartItems.length === 0}>
+                      <Link href="/pago">
                       Proceder al Pago
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
