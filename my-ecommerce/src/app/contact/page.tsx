@@ -1,37 +1,11 @@
-'use client'
-
-import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Recycle, ShoppingBag, MessageCircle, Trash2, Plus, Minus } from 'lucide-react'
+import { Recycle, ShoppingBag, MessageCircle, Mail, Phone, MapPin } from 'lucide-react'
 
-// Dummy data for cart items
-const initialCartItems = [
-  { id: 1, name: "Laptop Reacondicionada", price: 599, quantity: 1, image: "/placeholder.svg" },
-  { id: 2, name: "Smartphone Nuevo", price: 799, quantity: 1, image: "/placeholder.svg" },
-  { id: 3, name: "Tablet Reacondicionada", price: 299, quantity: 2, image: "/placeholder.svg" },
-]
-
-export default function CartPage() {
-  const [cartItems, setCartItems] = useState(initialCartItems)
-
-  const updateQuantity = (id: number, newQuantity: number) => {
-    setCartItems(cartItems.map(item => 
-      item.id === id ? { ...item, quantity: Math.max(0, newQuantity) } : item
-    ).filter(item => item.quantity > 0))
-  }
-
-  const removeItem = (id: number) => {
-    setCartItems(cartItems.filter(item => item.id !== id))
-  }
-
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const tax = subtotal * 0.1 // Assuming 10% tax
-  const total = subtotal + tax
-
+export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <header className="px-4 lg:px-6 h-14 flex items-center border-b">
@@ -43,7 +17,7 @@ export default function CartPage() {
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/">
             Inicio
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/catalog">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/catalogo">
             Catálogo
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/recycle">
@@ -57,97 +31,111 @@ export default function CartPage() {
           </Link>
         </nav>
         <div className="flex items-center gap-4 ml-4">
-          <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon">
+            <Link href="/carrito">
             <ShoppingBag className="h-5 w-5" />
             <span className="sr-only">Carrito de compras</span>
+            </Link>
           </Button>
           <Button variant="ghost" size="sm">Iniciar sesión</Button>
         </div>
       </header>
       <main className="flex-1">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-green-50">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  Contáctanos
+                </h1>
+                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+                  Estamos aquí para ayudarte. No dudes en ponerte en contacto con nosotros para cualquier consulta o sugerencia.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none mb-8">
-              Tu Carrito de Compras
-            </h1>
-            <div className="grid gap-10 lg:grid-cols-3">
-              <div className="lg:col-span-2 space-y-6">
-                {cartItems.length === 0 ? (
-                  <p className="text-center text-gray-500">Tu carrito está vacío.</p>
-                ) : (
-                  cartItems.map((item) => (
-                    <Card key={item.id}>
-                      <CardContent className="p-6">
-                        <div className="flex items-center space-x-4">
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            width={80}
-                            height={80}
-                            className="rounded-md"
-                          />
-                          <div className="flex-1">
-                            <h3 className="text-lg font-semibold">{item.name}</h3>
-                            <p className="text-sm text-gray-500">Precio: ${item.price}</p>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <Button
-                              variant="outline"
-                              size="icon"
-                              onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            >
-                              <Minus className="h-4 w-4" />
-                            </Button>
-                            <Input
-                              type="number"
-                              value={item.quantity}
-                              onChange={(e) => updateQuantity(item.id, parseInt(e.target.value, 10))}
-                              className="w-16 text-center"
-                            />
-                            <Button
-                              variant="outline"
-                              size="icon"
-                              onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            >
-                              <Plus className="h-4 w-4" />
-                            </Button>
-                          </div>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => removeItem(item.id)}
-                          >
-                            <Trash2 className="h-5 w-5 text-red-500" />
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))
-                )}
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div className="space-y-8">
+                <form className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+                        Nombre
+                      </label>
+                      <Input id="first-name" required />
+                    </div>
+                    <div>
+                      <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
+                        Apellido
+                      </label>
+                      <Input id="last-name" required />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                      Correo electrónico
+                    </label>
+                    <Input id="email" type="email" required />
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
+                      Asunto
+                    </label>
+                    <Input id="subject" required />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                      Mensaje
+                    </label>
+                    <Textarea id="message" required className="min-h-[150px]" />
+                  </div>
+                  <Button type="submit" className="w-full">Enviar mensaje</Button>
+                </form>
               </div>
-              <div>
+              <div className="space-y-8">
                 <Card>
                   <CardContent className="p-6">
-                    <h2 className="text-xl font-semibold mb-4">Resumen del Pedido</h2>
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span>Subtotal</span>
-                        <span>${subtotal.toFixed(2)}</span>
+                    <h2 className="text-2xl font-bold mb-4">Información de contacto</h2>
+                    <div className="space-y-4">
+                      <div className="flex items-center">
+                        <Mail className="h-5 w-5 mr-2 text-green-600" />
+                        <span>info@techrecycle.com</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span>Impuestos</span>
-                        <span>${tax.toFixed(2)}</span>
+                      <div className="flex items-center">
+                        <Phone className="h-5 w-5 mr-2 text-green-600" />
+                        <span>+1 (555) 123-4567</span>
                       </div>
-                      <div className="flex justify-between font-semibold">
-                        <span>Total</span>
-                        <span>${total.toFixed(2)}</span>
+                      <div className="flex items-center">
+                        <MapPin className="h-5 w-5 mr-2 text-green-600" />
+                        <span>123 Calle Tecnología, Ciudad Eco, 12345</span>
                       </div>
                     </div>
-                    <Button className="w-full mt-6" disabled={cartItems.length === 0}>
-                      Proceder al Pago
-                    </Button>
                   </CardContent>
                 </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h2 className="text-2xl font-bold mb-4">Horario de atención</h2>
+                    <ul className="space-y-2">
+                      <li>Lunes - Viernes: 9:00 AM - 6:00 PM</li>
+                      <li>Sábado: 10:00 AM - 2:00 PM</li>
+                      <li>Domingo: Cerrado</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+                <div className="aspect-w-16 aspect-h-9">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835253576489!2d144.96305931531907!3d-37.8172099797523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sus!4v1635131371064!5m2!1sen!2sus"
+                    width="600"
+                    height="450"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    className="w-full h-full rounded-lg"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
@@ -159,7 +147,7 @@ export default function CartPage() {
             <div>
               <h3 className="text-lg font-bold mb-4">Enlaces Rápidos</h3>
               <ul className="space-y-2">
-                <li><Link href="/catalog" className="text-gray-500 hover:text-gray-700">Catálogo</Link></li>
+                <li><Link href="/catalogo" className="text-gray-500 hover:text-gray-700">Catálogo</Link></li>
                 <li><Link href="/recycle" className="text-gray-500 hover:text-gray-700">Reciclaje</Link></li>
                 <li><Link href="/blog" className="text-gray-500 hover:text-gray-700">Blog</Link></li>
                 <li><Link href="/contact" className="text-gray-500 hover:text-gray-700">Contacto</Link></li>

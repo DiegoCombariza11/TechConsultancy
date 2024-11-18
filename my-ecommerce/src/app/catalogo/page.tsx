@@ -1,3 +1,4 @@
+"use client";
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -33,7 +34,7 @@ export default function CatalogPage() {
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/">
             Inicio
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/catalog">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/catalogo">
             Catálogo
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/recycle">
@@ -48,8 +49,10 @@ export default function CatalogPage() {
         </nav>
         <div className="flex items-center gap-4 ml-4">
           <Button variant="ghost" size="icon">
+            <Link href="/carrito">
             <ShoppingBag className="h-5 w-5" />
             <span className="sr-only">Carrito de compras</span>
+            </Link>
           </Button>
           <Button variant="ghost" size="sm">Iniciar sesión</Button>
         </div>

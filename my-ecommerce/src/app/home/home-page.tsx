@@ -12,16 +12,16 @@ export default function Component() {
           <span className="ml-2 text-2xl font-bold text-gray-700">TechRecycle</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/catalogo">
             Catálogo
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/recycle">
             Reciclaje
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/blog">
             Blog
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/contact">
             Contacto
           </Link>
         </nav>
@@ -39,8 +39,12 @@ export default function Component() {
                 </p>
               </div>
               <div className="space-x-4">
+                <Link href="/catalogo">
                 <Button>Ver Catálogo</Button>
+                </Link>
+                <Link href="/recycle">
                 <Button variant="outline">Programa de Reciclaje</Button>
+                </Link>
               </div>
             </div>
           </div>

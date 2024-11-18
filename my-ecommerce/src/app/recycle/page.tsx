@@ -34,9 +34,11 @@ export default function RecycleProgramPage() {
           </Link>
         </nav>
         <div className="flex items-center gap-4 ml-4">
-          <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon">
+            <Link href="/carrito">
             <ShoppingBag className="h-5 w-5" />
             <span className="sr-only">Carrito de compras</span>
+            </Link>
           </Button>
           <Button variant="ghost" size="sm">Iniciar sesión</Button>
         </div>
@@ -249,7 +251,7 @@ export default function RecycleProgramPage() {
             <div>
               <h3 className="text-lg font-bold mb-4">Enlaces Rápidos</h3>
               <ul className="space-y-2">
-                <li><Link href="/catalog" className="text-gray-500 hover:text-gray-700">Catálogo</Link></li>
+                <li><Link href="/catalogo" className="text-gray-500 hover:text-gray-700">Catálogo</Link></li>
                 <li><Link href="/recycle" className="text-gray-500 hover:text-gray-700">Reciclaje</Link></li>
                 <li><Link href="/blog" className="text-gray-500 hover:text-gray-700">Blog</Link></li>
                 <li><Link href="/contact" className="text-gray-500 hover:text-gray-700">Contacto</Link></li>
